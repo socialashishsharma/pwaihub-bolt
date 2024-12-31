@@ -47,22 +47,21 @@ export class AzureOpenAIService implements AIService {
         throw new Error(validationError);
       }
 
+      const apiUrl = 'https://benevolent-biscochitos-7e0f3b.netlify.app/.netlify/functions/generate';
+      
       const response = await fetch(
-        `${this.endpoint}/openai/deployments/${this.modelName}/chat/completions?api-version=2023-03-15-preview`,
+        apiUrl,
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'api-key': this.apiKey,
+            // 'Origin': window.location.origin,
+            // 'Access-Control-Allow-Origin': '*',
           },
+          // credentials: 'include',
+          mode: 'cors', 
           body: JSON.stringify({
-            messages: [{ role: 'user', content: sanitizedPrompt }],
-            response_format: { type: 'json_object' },
-            temperature: 0.3,
-            max_tokens: 2000,
-            top_p: 1,
-            frequency_penalty: 0,
-            presence_penalty: 0,
+            prompt: sanitizedPrompt
           }),
         }
       );

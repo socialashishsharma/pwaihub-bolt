@@ -12,8 +12,8 @@ const Header = () => {
       <nav className="container mx-auto px-4 h-16">
         <div className="flex items-center justify-between h-full">
           <Link to="/" className="flex items-center space-x-2">
-            <BookOpen className="w-8 h-8 text-blue-600 dark:text-blue-500" />
-            <span className="text-xl font-bold text-gray-900 dark:text-white">LearnAI</span>
+            <img src="/src/assets/logo.png" alt="Unifined" className="w-6 h-6" />
+            <span className="text-xl font-bold text-gray-900 dark:text-white">Unifined</span>
           </Link>
 
           {/* Desktop Navigation */}
